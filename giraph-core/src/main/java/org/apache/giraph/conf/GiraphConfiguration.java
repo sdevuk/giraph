@@ -755,6 +755,47 @@ public class GiraphConfiguration extends Configuration
   }
 
   /**
+   * The hostname of a Graphite server to push metrics to.
+   *
+   * @return the hostname, or "" if metrics should not be pushed to Graphite.
+   */
+  public String metricsGraphiteHost() {
+    return METRICS_GRAPHITE_HOST.get(this);
+  }
+
+  /**
+   * The port for the Graphite server.
+   *
+   * @return The port for the Graphite server.
+   */
+  public int metricsGraphitePort() {
+    return METRICS_GRAPHITE_PORT.get(this);
+  }
+
+  /**
+   * The period between pushing metrics to Graphite.
+   *
+   * @return The period between pushing metrics to Graphite.
+   */
+  public int metricsGraphitePeriod() {
+    return METRICS_GRAPHITE_PERIOD.get(this);
+  }
+
+  /**
+   * The prefix for Graphite metrics.
+   *
+   * @return The prefix for Graphite metrics.
+   */
+  public String metricsGraphitePrefix() {
+    return METRICS_GRAPHITE_PREFIX.get(this);
+  }
+
+  public int applicationMasterDebugPort() {
+    return APPLICATION_MASTER_DEBUG_PORT.get(this);
+  }
+
+
+  /**
    * Is this a "pure YARN" Giraph job, or is a MapReduce layer (v1 or v2)
    * actually managing our cluster nodes, i.e. each task is a Mapper.
    *
@@ -762,6 +803,16 @@ public class GiraphConfiguration extends Configuration
    */
   public boolean isPureYarnJob() {
     return IS_PURE_YARN_JOB.get(this);
+  }
+
+  /**
+   * Extra options to pass to the JVM when launching a task.
+   * Defaults to "".
+   *
+   * @return Any extra options to pass to the JVM when launching a task.
+   */
+  public String extraJavaOptions() {
+    return EXTRA_JAVA_OPTIONS.get(this);
   }
 
   /**

@@ -398,6 +398,10 @@ public interface GiraphConstants {
         "Is this a pure YARN job (i.e. no MapReduce layer managing Giraph " +
         "tasks)");
 
+  /** Extra options to supply to the JVM when launching a task. */
+  StrConfOption EXTRA_JAVA_OPTIONS = new StrConfOption("giraph.extraJavaOptions", "",
+      "Extra options to supply to the JVM when launching a task.");
+
   /** Vertex index class */
   ClassConfOption<WritableComparable> VERTEX_ID_CLASS =
       ClassConfOption.create("giraph.vertexIdClass", null,
@@ -520,6 +524,31 @@ public interface GiraphConstants {
   StrConfOption METRICS_DIRECTORY =
       new StrConfOption("giraph.metrics.directory", "",
           "Directory in HDFS to write master metrics to, instead of stderr");
+
+  /** Graphite Host to push Metrics to */
+  StrConfOption METRICS_GRAPHITE_HOST =
+      new StrConfOption("giraph.metrics.graphite.host", "",
+          "Graphite host");
+
+  /** Graphite Port */
+  IntConfOption METRICS_GRAPHITE_PORT =
+      new IntConfOption("giraph.metrics.graphite.port", 2003,
+          "Graphite Port");
+
+  /** Graphite Period */
+  IntConfOption METRICS_GRAPHITE_PERIOD =
+      new IntConfOption("giraph.metrics.graphite.period", 30,
+          "Graphite Period");
+
+  /** Graphite prefix */
+  StrConfOption METRICS_GRAPHITE_PREFIX =
+      new StrConfOption("giraph.metrics.graphite.prefix", "",
+          "The prefix for the Graphite metrics");
+
+  IntConfOption APPLICATION_MASTER_DEBUG_PORT =
+      new IntConfOption("giraph.am.debug.port", 0,
+          "Remote debug port for application master");
+
 
   /**
    *  ZooKeeper comma-separated list (if not set,
