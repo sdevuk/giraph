@@ -790,6 +790,10 @@ public class GiraphConfiguration extends Configuration
     return METRICS_GRAPHITE_PREFIX.get(this);
   }
 
+  /**
+   * Port to enable remote debugging
+   * @return The port on which to enable remote debugging
+   */
   public int applicationMasterDebugPort() {
     return APPLICATION_MASTER_DEBUG_PORT.get(this);
   }
